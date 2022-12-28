@@ -2,9 +2,11 @@ window.onload = function () {
     var tens = 0;
     var seconds = 0;
     var minutes = 0;
+    var hours = 0;
     var updatedTens = document.getElementById("ten");
     var updatedSeconds = document.getElementById("second");
     var updatedMinutes = document.getElementById("minute");
+    var updatedHours = document.getElementById("hour");
     var startButton = document.getElementById("start");
     var stopButton = document.getElementById("stop");
     var resetButton = document.getElementById("reset");
@@ -22,6 +24,8 @@ window.onload = function () {
             seconds++
             tens = 0;
             updatedTens.innerHTML = "00";
+        }
+        if (seconds <= 9) {
             updatedSeconds.innerHTML = "0" + seconds;
         }
         if (seconds > 9) {
@@ -31,10 +35,23 @@ window.onload = function () {
             minutes++
             seconds = 0;
             updatedSeconds.innerHTML = "00";
+        }
+        if (minutes <= 9) {
             updatedMinutes.innerHTML = "0" + minutes;
         }
         if (minutes > 9) {
             updatedMinutes.innerHTML = minutes;
+        }
+        if (minutes > 59) {
+            hours++
+            minutes = 0;
+            updatedMinutes.innerHTML = "00"
+        }
+        if (hours <= 9) {
+            updatedHours.innerHTML = "0" + hours;
+        }
+        if (hours > 9) {
+            updatedHours.innerHTML = hours;
         }
     }
 
